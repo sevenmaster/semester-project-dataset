@@ -4,10 +4,10 @@
 
 using namespace std;
 
-void __attribute__ ((noinline)) prevent_opt(map<int, double>* num) {
+void __attribute__ ((noinline)) prevent_opt(map<int, string>* num) {
     for (int j = 0; j < rand(); j++) {
         // opt init
-        num->insert(make_pair(j, j / 2.0));
+        num->insert(make_pair(j, to_string(j)));
     }
     // print the contents of num
     for (auto it = num->begin(); it != num->end(); it++) {
@@ -15,15 +15,15 @@ void __attribute__ ((noinline)) prevent_opt(map<int, double>* num) {
     }
 }
 
-void ins(map<int, double>* num, const int key, const double val) {
+void ins(map<int, string>* num, const int key, const string val) {
     (*num)[key] = val;
 }
 
 int main() {
     // init
-    map<int, double> m;
+    map<int, string> m;
     prevent_opt(&m);
-    ins(&m, 2, 13.37);
+    ins(&m, 2, "Hi");
     prevent_opt(&m);
     return 0;
 }

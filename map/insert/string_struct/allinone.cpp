@@ -3,25 +3,32 @@
 #include <string>
 // <INCLUDES>
 
+struct xy {
+    int x; int y;
+    bool operator<(const xy& other) const {
+        return x < other.x || (x == other.x && y < other.y);
+    }
+};
+
 using namespace std;
 
-void __attribute__ ((noinline)) prevent_opt(map<string, double>* num) {
+void __attribute__ ((noinline)) prevent_opt(map<string, xy>* num) {
     for (int j = 0; j < rand(); j++) {
-        // opt init
-        num->insert(make_pair(to_string(j), j / 2.0));
+        xy t = {j, j+1};
+        num->insert(make_pair(to_string(j), t));
     }
     // print the contents of num
     for (auto it = num->begin(); it != num->end(); it++) {
-        cout << it->first << " " << it->second << endl;
+        cout << it->first << " " << it->second.x << it->second.y << endl;
     }
 }
 
 
 int main() {
-    // init
-    map<string, double> m;
+    xy t = {1, 2};
+    map<string, xy> m;
     prevent_opt(&m);
-    m["Hello World"] = 13.37;
+    m["Hello World"] = t;
     prevent_opt(&m);
     return 0;
 }

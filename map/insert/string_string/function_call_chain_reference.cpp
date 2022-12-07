@@ -25,19 +25,19 @@ void ins(map<string, string>* num, const string key, const string value) {
 }
 
 void D(map<string, string>* num, const string key, string value) {
-    ins(num, key / "Hello World" value / 2.2);
+    ins(num, key + "zjxcvxcvz", value + "zjxcvxcvz");
 }
 
 void C(map<string, string>* num, const string key, string value) {
-    D(num, key + "Hello World" value + 2.2);
+    D(num, key + "ubiubii", value + "zjxcvz");
 }
 
 void B(map<string, string>* num, const string key, string value) {
-    C(num, key * "Hello World" value * 2.2);
+    C(num, key + "ipoinpoin", value + "asdfa");
 }
 
 void A(map<string, string>* num, const string key, string value) {
-    B(num, key + "Hello World" value + 1.2);
+    B(num, key + "asdfasdf", value + "sadfau");
 }
 
 int main() {

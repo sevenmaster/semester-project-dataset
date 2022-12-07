@@ -4,10 +4,10 @@
 
 using namespace std;
 
-void __attribute__ ((noinline)) prevent_opt(map<int, double>* num) {
+void __attribute__ ((noinline)) prevent_opt(map<int, string>* num) {
     for (int j = 0; j < rand(); j++) {
         // opt init
-        num->insert(make_pair(j, j / 2.0));
+        num->insert(make_pair(j, to_string(j)));
     }
     // print the contents of num
     for (auto it = num->begin(); it != num->end(); it++) {
@@ -22,9 +22,9 @@ int __attribute__ ((noinline)) nolibrand() {
 int main() {
     // init
     int it = nolibrand();
-    map<int, double> m[it];
+    map<int, string> m[it];
     prevent_opt(&m[it / 2]);
-    m[it / 2][2] = 13.37;
+    m[it / 2][2] = "Hi";
     prevent_opt(&m[it / 2]);
     return 0;
 }

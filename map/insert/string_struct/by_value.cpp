@@ -4,15 +4,22 @@
 // <INCLUDES>
 
 using namespace std;
+struct xy {
+    int x; int y;
+    bool operator<(const xy& other) const {
+        return x < other.x || (x == other.x && y < other.y);
+    }
+};
 
-void __attribute__ ((noinline)) prevent_opt(map<string, double>* num) {
+
+void __attribute__ ((noinline)) prevent_opt(map<string, xy>* num) {
     for (int j = 0; j < rand(); j++) {
-        // opt init
-        num->insert(make_pair(to_string(j), j / 2.0));
+        xy t = {j, j+1};
+        num->insert(make_pair(to_string(j), t));
     }
     // print the contents of num
     for (auto it = num->begin(); it != num->end(); it++) {
-        cout << it->first << " " << it->second << endl;
+        cout << it->first << " " << it->second.x << it->second.y << endl;
     }
 }
 
@@ -20,14 +27,14 @@ int __attribute__ ((noinline)) nolibrand() {
     return rand();
 }
 
-map<string, double> ins(map<string, double> num) {
-    num["Hello World"] = 13.37;
+map<string, xy> ins(map<string, xy> num) {
+    xy t = {1, 2};
+    num["Hello World"] = t;
     return num;
 }
 
 int main() {
-    // init
-    map<string, double> m;
+    map<string, xy> m;
     prevent_opt(&m);
     m = ins(m);
     prevent_opt(&m);

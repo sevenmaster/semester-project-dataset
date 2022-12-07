@@ -1,17 +1,23 @@
 #include <iostream>
 #include <map>
+struct xy {
+    int x; int y;
+    bool operator<(const xy& other) const {
+        return x < other.x || (x == other.x && y < other.y);
+    }
+};
 // <INCLUDES>
 
 using namespace std;
 
-void __attribute__ ((noinline)) prevent_opt(map<int, double>* num) {
+void __attribute__ ((noinline)) prevent_opt(map<int, xy>* num) {
     for (int j = 0; j < rand(); j++) {
-        // opt init
-        num->insert(make_pair(j, j / 2.0));
+        xy t = {j, j+1};
+        num->insert(make_pair(j, t));
     }
     // print the contents of num
     for (auto it = num->begin(); it != num->end(); it++) {
-        cout << it->first << " " << it->second << endl;
+        cout << it->first << " " << it->second.x << it->second.y << endl;
     }
 }
 
@@ -19,32 +25,40 @@ int __attribute__ ((noinline)) nolibrand() {
     return rand();
 }
 
-map<int, double> ins(map<int, double> num, const int key, const double value) {
+map<int, xy> ins(map<int, xy> num, const int key, const xy value) {
     num[key] = value;
     return num;
 }
 
-map<int, double> D(map<int, double> num, const int key, double value) {
-    return ins(num, key / 2, value / 2.2);
+map<int, xy> D(map<int, xy> num, const int key, xy value) {
+    value.x = value.x / 2;
+    value.y = value.y / 2;
+    return ins(num, key / 2, value);
 }
 
-map<int, double> C(map<int, double> num, const int key, double value) {
-    return D(num, key + 2, value + 2.2);
+map<int, xy> C(map<int, xy> num, const int key, xy value) {
+    value.x = value.x + 2;
+    value.y = value.y + 2;
+    return D(num, key + 2, value);
 }
 
-map<int, double> B(map<int, double> num, const int key, double value) {
-    return C(num, key * 2, value * 2.2);
+map<int, xy> B(map<int, xy> num, const int key, xy value) {
+    value.x = value.x * 2;
+    value.y = value.y * 2;
+    return C(num, key * 2, value);
 }
 
-map<int, double> A(map<int, double> num, const int key, double value) {
-    return B(num, key + 1, value + 1.2);
+map<int, xy> A(map<int, xy> num, const int key, xy value) {
+    value.x = value.x + 1;
+    value.y = value.y + 1;
+    return B(num, key + 1, value);
 }
 
 int main() {
-    // init
-    map<int, double> m;
+    xy t = {1, 2};
+    map<int, xy> m;
     prevent_opt(&m);
-    m = A(m, 2, 13.37);
+    m = A(m, 2, t);
     prevent_opt(&m);
     return 0;
 }

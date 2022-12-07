@@ -4,11 +4,18 @@
 // <INCLUDES>
 
 using namespace std;
+struct xy {
+    int x; int y;
+    bool operator<(const xy& other) const {
+        return x < other.x || (x == other.x && y < other.y);
+    }
+};
 
-void __attribute__ ((noinline)) prevent_opt(map<string, double>* num) {
+
+void __attribute__ ((noinline)) prevent_opt(map<string, xy>* num) {
     for (int j = 0; j < rand(); j++) {
-        // opt init
-        num->insert(make_pair(to_string(j), j / 2.0));
+        xy t = {j, j+1};
+        num->insert(make_pair(to_string(j), t));
     }
 }
 
@@ -17,13 +24,13 @@ int __attribute__ ((noinline)) nolibrand() {
 }
 
 int main() {
-    // init
+    xy t = {1, 2};
     int it = nolibrand();
-    map<string, double> m[it];
+    map<string, xy> m[it];
     prevent_opt(&m[it / 2]);
     for (int j = 0; j < rand(); j++) {
-        // opt init
-        m->insert(make_pair(to_string(j), j / 2.0));
+        xy t = {j, j+1};
+        m->insert(make_pair(to_string(j), t));
     }
     prevent_opt(&m[it / 2]);
     return 0;

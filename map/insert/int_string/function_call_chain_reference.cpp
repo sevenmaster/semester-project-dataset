@@ -4,10 +4,10 @@
 
 using namespace std;
 
-void __attribute__ ((noinline)) prevent_opt(map<int, double>* num) {
+void __attribute__ ((noinline)) prevent_opt(map<int, string>* num) {
     for (int j = 0; j < rand(); j++) {
         // opt init
-        num->insert(make_pair(j, j / 2.0));
+        num->insert(make_pair(j, to_string(j)));
     }
     // print the contents of num
     for (auto it = num->begin(); it != num->end(); it++) {
@@ -19,31 +19,31 @@ int __attribute__ ((noinline)) nolibrand() {
     return rand();
 }
 
-void ins(map<int, double>* num, const int key, const double value) {
+void ins(map<int, string>* num, const int key, const string value) {
     (*num)[key] = value;
 }
 
-void D(map<int, double>* num, const int key, double value) {
-    ins(num, key / 2, value / 2.2);
+void D(map<int, string>* num, const int key, string value) {
+    ins(num, key / 2, value + "A");
 }
 
-void C(map<int, double>* num, const int key, double value) {
-    D(num, key + 2, value + 2.2);
+void C(map<int, string>* num, const int key, string value) {
+    D(num, key + 2, value + "A");
 }
 
-void B(map<int, double>* num, const int key, double value) {
-    C(num, key * 2, value * 2.2);
+void B(map<int, string>* num, const int key, string value) {
+    C(num, key * 2, value + "A");
 }
 
-void A(map<int, double>* num, const int key, double value) {
-    B(num, key + 1, value + 1.2);
+void A(map<int, string>* num, const int key, string value) {
+    B(num, key + 1, value + "A");
 }
 
 int main() {
     // init
-    map<int, double> m;
+    map<int, string> m;
     prevent_opt(&m);
-    A(&m, 2, 13.37);
+    A(&m, 2, "Hi");
     prevent_opt(&m);
     return 0;
 }

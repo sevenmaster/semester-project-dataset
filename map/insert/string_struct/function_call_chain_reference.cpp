@@ -4,47 +4,62 @@
 // <INCLUDES>
 
 using namespace std;
+struct xy {
+    int x; int y;
+    bool operator<(const xy& other) const {
+        return x < other.x || (x == other.x && y < other.y);
+    }
+};
 
-void __attribute__ ((noinline)) prevent_opt(map<string, double>* num) {
+
+void __attribute__ ((noinline)) prevent_opt(map<string, xy>* num) {
     for (int j = 0; j < rand(); j++) {
-        // opt init
-        num->insert(make_pair(to_string(j), j / 2.0));
+        xy t = {j, j+1};
+        num->insert(make_pair(to_string(j), t));
     }
     // print the contents of num
     for (auto it = num->begin(); it != num->end(); it++) {
-        cout << it->first << " " << it->second << endl;
+        cout << it->first << " " << it->second.x << it->second.y << endl;
     }
 }
 
 int __attribute__ ((noinline)) nolibrand() {
     return rand();
 }
-
-void ins(map<string, double>* num, const string key, const double value) {
+void ins(map<string, xy>* num, const string key, xy value) {
     (*num)[key] = value;
 }
 
-void D(map<string, double>* num, const string key, double value) {
-    ins(num, key / "Hello World" value / 2.2);
+void D(map<string, xy>* num, const string key, xy value) {
+    value.x = value.x / 2;
+    value.y = value.y / 2;
+    ins(num, key + "d", value);
 }
 
-void C(map<string, double>* num, const string key, double value) {
-    D(num, key + "Hello World" value + 2.2);
+void C(map<string, xy>* num, const string key, xy value) {
+    value.x = value.x + 2;
+    value.y = value.y + 2;
+    D(num, key + "c", value);
 }
 
-void B(map<string, double>* num, const string key, double value) {
-    C(num, key * "Hello World" value * 2.2);
+void B(map<string, xy>* num, const string key, xy value) {
+    value.x = value.x * 2;
+    value.y = value.y * 2;
+    C(num, key + "b", value);
 }
 
-void A(map<string, double>* num, const string key, double value) {
-    B(num, key + "Hello World" value + 1.2);
+void A(map<string, xy>* num, const string key, xy value) {
+    value.x = value.x + 1;
+    value.y = value.y + 1;
+    B(num, key + "A", value);
 }
+
 
 int main() {
-    // init
-    map<string, double> m;
+    xy t = {1, 2};
+    map<string, xy> m;
     prevent_opt(&m);
-    A(&m, "Hello World", 13.37);
+    A(&m, "Hello World", t);
     prevent_opt(&m);
     return 0;
 }

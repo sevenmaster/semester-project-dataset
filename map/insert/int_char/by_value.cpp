@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void __attribute__ ((noinline)) prevent_opt(map<int, int>* num) {
+void __attribute__ ((noinline)) prevent_opt(map<int, char>* num) {
     for (int j = 0; j < rand(); j++) {
         // opt init
         num->insert(make_pair(j, j / 'b'));
@@ -19,14 +19,14 @@ int __attribute__ ((noinline)) nolibrand() {
     return rand();
 }
 
-map<int, int> ins(map<int, int> num) {
+map<int, char> ins(map<int, char> num) {
     num[2] = 'b';
     return num;
 }
 
 int main() {
     // init
-    map<int, int> m;
+    map<int, char> m;
     prevent_opt(&m);
     m = ins(m);
     prevent_opt(&m);

@@ -25,7 +25,7 @@ int main() {
     map<string, int> m;
     prevent_opt(&m);
     for (int j = 0; j < rand(); j++) {
-        m.insert(make_pair((j / 7 + 8) * 9, (j / 7 + 8) * 9));
+        m.insert(make_pair(to_string(j), (j / 7 + 8) * 9));
     }
     prevent_opt(&m);
     return 0;

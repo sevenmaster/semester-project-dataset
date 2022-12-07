@@ -1,13 +1,20 @@
 #include <iostream>
 #include <map>
+struct xy {
+    int x; int y;
+    bool operator<(const xy& other) const {
+        return x < other.x || (x == other.x && y < other.y);
+    }
+};
+
 // <INCLUDES>
 
 using namespace std;
 
-void __attribute__ ((noinline)) prevent_opt(map<int, double>* num) {
+void __attribute__ ((noinline)) prevent_opt(map<int, xy>* num) {
     for (int j = 0; j < rand(); j++) {
-        // opt init
-        num->insert(make_pair(j, j / 2.0));
+        xy t = {j, j+1};
+        num->insert(make_pair(j, t));
     }
 }
 
@@ -16,13 +23,12 @@ int __attribute__ ((noinline)) nolibrand() {
 }
 
 int main() {
-    // init
     int it = nolibrand();
-    map<int, double> m[it];
+    map<int, xy> m[it];
     prevent_opt(&m[it / 2]);
     for (int j = 0; j < rand(); j++) {
-        // opt init
-        m->insert(make_pair(j, j / 2.0));
+        xy t = {j, j+1};
+        m->insert(make_pair(j, t));
     }
     prevent_opt(&m[it / 2]);
     return 0;

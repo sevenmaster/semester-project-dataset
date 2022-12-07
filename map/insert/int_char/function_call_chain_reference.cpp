@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void __attribute__ ((noinline)) prevent_opt(map<int, int>* num) {
+void __attribute__ ((noinline)) prevent_opt(map<int, char>* num) {
     for (int j = 0; j < rand(); j++) {
         // opt init
         num->insert(make_pair(j, j / 'b'));
@@ -19,31 +19,31 @@ int __attribute__ ((noinline)) nolibrand() {
     return rand();
 }
 
-void ins(map<int, int>* num, const int key, const int value) {
+void ins(map<int, char>* num, const int key, const int value) {
     (*num)[key] = value;
 }
 
-void D(map<int, int>* num, const int key, int value) {
+void D(map<int, char>* num, const int key, int value) {
     ins(num, key / 2, value / 'b');
 }
 
-void C(map<int, int>* num, const int key, int value) {
+void C(map<int, char>* num, const int key, int value) {
     D(num, key + 2, value + 'b');
 }
 
-void B(map<int, int>* num, const int key, int value) {
+void B(map<int, char>* num, const int key, int value) {
     C(num, key * 2, value * 'b');
 }
 
-void A(map<int, int>* num, const int key, int value) {
+void A(map<int, char>* num, const int key, int value) {
     B(num, key + 1, value + 'b');
 }
 
 int main() {
     // init
-    map<int, int> m;
+    map<int, char> m;
     prevent_opt(&m);
-    A(&m, 2, 1'b'7);
+    A(&m, 2, 'b');
     prevent_opt(&m);
     return 0;
 }

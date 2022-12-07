@@ -26,19 +26,19 @@ map<string, int> ins(map<string, int> num, const string key, const int value) {
 }
 
 map<string, int> D(map<string, int> num, const string key, int value) {
-    return ins(num, key / "Hello World" value / 2);
+    return ins(num, key + "Hello World", value / 2);
 }
 
 map<string, int> C(map<string, int> num, const string key, int value) {
-    return D(num, key + "Hello World" value + 2);
+    return D(num, key + "Hello World", value + 2);
 }
 
 map<string, int> B(map<string, int> num, const string key, int value) {
-    return C(num, key * "Hello World" value * 2);
+    return C(num, key + "Hello World", value * 2);
 }
 
 map<string, int> A(map<string, int> num, const string key, int value) {
-    return B(num, key + "Hello World" value + 1);
+    return B(num, key + "Hello World", value + 1);
 }
 
 int main() {
