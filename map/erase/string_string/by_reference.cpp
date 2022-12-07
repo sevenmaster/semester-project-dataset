@@ -1,11 +1,7 @@
 #include <iostream>
 #include <map>
 #include <string>
-
-void __attribute__ ((noinline)) sink(std::string val) {
-    std::cout << val << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -25,7 +21,7 @@ int __attribute__ ((noinline)) nolibrand() {
 }
 
 void ins(map<string, string>* num) {
-	sink((*num).at("Hello World"));
+    (*num).erase("Hello World");
 }
 
 int main() {

@@ -1,10 +1,6 @@
 #include <iostream>
 #include <map>
-#include <string>
-void __attribute__ ((noinline)) sink(double val) {
-    std::cout << val << std::endl;
-}
-
+#include <string>// <INCLUDES>
 
 using namespace std;
 
@@ -28,7 +24,7 @@ int main() {
     map<string, double> m;
     prevent_opt(&m);
     for (int j = 0; j < rand(); j++) {
-	sink(m.at(to_string(j) + "Hi"));
+        m.erase(to_string(j) + "Hi");
     }
     prevent_opt(&m);
     return 0;

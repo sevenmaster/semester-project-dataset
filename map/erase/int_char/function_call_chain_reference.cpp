@@ -1,10 +1,6 @@
 #include <iostream>
 #include <map>
-
-void __attribute__ ((noinline)) sink(char val) {
-    std::cout << val << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -24,7 +20,7 @@ int __attribute__ ((noinline)) nolibrand() {
 }
 
 void ins(map<int, char>* num, const int key, const int value) {
-	sink((*num).at(key));
+    (*num).erase(key);
 }
 
 void D(map<int, char>* num, const int key, int value) {

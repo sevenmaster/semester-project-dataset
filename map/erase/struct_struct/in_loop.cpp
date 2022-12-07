@@ -6,11 +6,7 @@ struct xy {
         return x < other.x || (x == other.x && y < other.y);
     }
 };
-
-void __attribute__ ((noinline)) sink(xy val.x << val.y) {
-    std::cout << val.x << val.y << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -34,7 +30,7 @@ int main() {
     map<xy, xy> m;
     prevent_opt(&m);
     for (int j = 0; j < rand(); j++) {
-	sink(m.at(t));
+        m.erase(t);
     }
     prevent_opt(&m);
     return 0;

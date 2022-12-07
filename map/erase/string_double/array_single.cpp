@@ -1,10 +1,6 @@
 #include <iostream>
 #include <map>
-#include <string>
-void __attribute__ ((noinline)) sink(double val) {
-    std::cout << val << std::endl;
-}
-
+#include <string>// <INCLUDES>
 
 using namespace std;
 
@@ -28,7 +24,7 @@ int main() {
     int it = nolibrand();
     map<string, double> m[it];
     prevent_opt(&m[it / 2]);
-	sink(m[it / 2].at("Hello World"));
+    m[it / 2].erase("Hello World");
     prevent_opt(&m[it / 2]);
     return 0;
 }

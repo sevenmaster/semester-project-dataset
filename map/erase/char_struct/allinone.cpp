@@ -8,11 +8,7 @@ struct xy {
 };
 
 
-
-void __attribute__ ((noinline)) sink(xy val.x << val.y) {
-    std::cout << val.x << val.y << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -32,7 +28,7 @@ int main() {
     xy t = {1, 2};
     map<char, xy> m;
     prevent_opt(&m);
-	sink(m.at('a'));
+    m.erase('a');
     prevent_opt(&m);
     return 0;
 }

@@ -1,11 +1,7 @@
 #include <iostream>
 #include <map>
 #include <string>
-
-void __attribute__ ((noinline)) sink(xy val.x << val.y) {
-    std::cout << val.x << val.y << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 struct xy {
@@ -36,7 +32,7 @@ int main() {
     int it = nolibrand();
     map<string, xy> m[it];
     prevent_opt(&m[it / 2]);
-	sink(m[it / 2].at("Hello World"));
+    m[it / 2].erase("Hello World");
     prevent_opt(&m[it / 2]);
     return 0;
 }

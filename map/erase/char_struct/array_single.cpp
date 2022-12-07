@@ -7,11 +7,7 @@ struct xy {
     }
 };
 
-
-void __attribute__ ((noinline)) sink(xy val.x << val.y) {
-    std::cout << val.x << val.y << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -35,7 +31,7 @@ int main() {
     int it = nolibrand();
     map<char, xy> m[it];
     prevent_opt(&m[it / 2]);
-	sink(m[it / 2].at('a'));
+    m[it / 2].erase('a');
     prevent_opt(&m[it / 2]);
     return 0;
 }

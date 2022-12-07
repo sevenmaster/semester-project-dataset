@@ -1,11 +1,7 @@
 #include <iostream>
 #include <map>
 #include <string>
-
-void __attribute__ ((noinline)) sink(std::string val) {
-    std::cout << val << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -36,7 +32,7 @@ int main() {
     int it = nolibrand();
     map<xy, string> m[it];
     prevent_opt(&m[it / 2]);
-	sink(m[it / 2].at(t));
+    m[it / 2].erase(t);
     prevent_opt(&m[it / 2]);
     return 0;
 }

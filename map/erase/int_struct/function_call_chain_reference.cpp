@@ -7,11 +7,7 @@ struct xy {
     }
 };
 
-
-void __attribute__ ((noinline)) sink(xy val.x << val.y) {
-    std::cout << val.x << val.y << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -31,7 +27,7 @@ int __attribute__ ((noinline)) nolibrand() {
 }
 
 void ins(map<int, xy>* num, const int key, const xy value) {
-	sink((*num).at(key));
+    (*num).erase(key);
 }
 
 void D(map<int, xy>* num, const int key, xy value) {

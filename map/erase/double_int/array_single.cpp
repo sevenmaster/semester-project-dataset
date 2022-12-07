@@ -1,10 +1,6 @@
 #include <iostream>
 #include <map>
-
-void __attribute__ ((noinline)) sink(int val) {
-    std::cout << val << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -28,7 +24,7 @@ int main() {
     int it = nolibrand();
     map<double, int> m[it];
     prevent_opt(&m[it / 2]);
-	sink(m[it / 2].at(14.14));
+    m[it / 2].erase(14.14);
     prevent_opt(&m[it / 2]);
     return 0;
 }

@@ -6,11 +6,7 @@ struct xy {
         return x < other.x || (x == other.x && y < other.y);
     }
 };
-
-void __attribute__ ((noinline)) sink(xy val.x << val.y) {
-    std::cout << val.x << val.y << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -30,7 +26,7 @@ int __attribute__ ((noinline)) nolibrand() {
 }
 
 map<double, xy> ins(map<double, xy> num, const double key, const xy value) {
-	sink(num.at(key));
+    num.erase(key);
     return num;
 }
 

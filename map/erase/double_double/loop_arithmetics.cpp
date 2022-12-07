@@ -1,10 +1,6 @@
 #include <iostream>
 #include <map>
-
-void __attribute__ ((noinline)) sink(double val) {
-    std::cout << val << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -28,7 +24,7 @@ int main() {
     map<double, double> m;
     prevent_opt(&m);
     for (int j = 0; j < rand(); j++) {
-	sink(m.at((j / 7.6 + 8.6) * 9.6));
+        m.erase((j / 7.6 + 8.6) * 9.6);
     }
     prevent_opt(&m);
     return 0;

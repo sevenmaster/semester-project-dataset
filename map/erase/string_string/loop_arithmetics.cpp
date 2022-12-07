@@ -1,11 +1,7 @@
 #include <iostream>
 #include <map>
 #include <string>
-
-void __attribute__ ((noinline)) sink(std::string val) {
-    std::cout << val << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -29,7 +25,7 @@ int main() {
     map<string, string> m;
     prevent_opt(&m);
     for (int j = 0; j < rand(); j++) {
-	sink(m.at(to_string(j) + "asdf"));
+        m.erase(to_string(j) + "asdf");
     }
     prevent_opt(&m);
     return 0;

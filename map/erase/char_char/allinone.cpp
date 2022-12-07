@@ -1,10 +1,6 @@
 #include <iostream>
 #include <map>
-
-void __attribute__ ((noinline)) sink(char val) {
-    std::cout << val << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -24,7 +20,7 @@ int main() {
     // init
     map<char, char> m;
     prevent_opt(&m);
-	sink(m.at('a'));
+    m.erase('a');
     prevent_opt(&m);
     return 0;
 }

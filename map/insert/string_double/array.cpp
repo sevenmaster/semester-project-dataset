@@ -22,7 +22,7 @@ int main() {
     prevent_opt(&m[it / 2]);
     for (int j = 0; j < rand(); j++) {
         // opt init
-        m->insert(make_pair(to_string(j), j / 2.0));
+        m[j/2].insert(make_pair(to_string(j), j / 2.0));
     }
     prevent_opt(&m[it / 2]);
     return 0;

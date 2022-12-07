@@ -28,7 +28,7 @@ int main() {
     prevent_opt(&m[it / 2]);
     for (int j = 0; j < rand(); j++) {
         xy t = {j, j+1};
-        m->insert(make_pair(t, j / 137));
+        m[j/2].insert(make_pair(t, j / 137));
     }
     prevent_opt(&m[it / 2]);
     return 0;

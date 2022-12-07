@@ -1,11 +1,7 @@
 #include <iostream>
 #include <map>
 #include <string>
-
-void __attribute__ ((noinline)) sink(xy val.x << val.y) {
-    std::cout << val.x << val.y << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 struct xy {
@@ -33,7 +29,7 @@ int __attribute__ ((noinline)) nolibrand() {
 
 void ins(map<string, xy>* num) {
     xy t = {1, 2};
-	sink((*num).at("Hello World"));
+    (*num).erase("Hello World");
 }
 
 int main() {

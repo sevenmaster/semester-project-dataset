@@ -1,10 +1,6 @@
 #include <iostream>
 #include <map>
-
-void __attribute__ ((noinline)) sink(char val) {
-    std::cout << val << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -20,7 +16,7 @@ void __attribute__ ((noinline)) prevent_opt(map<double, char>* num) {
 }
 
 void ins(map<double, char>* num, const double key, const char val) {
-	sink((*num).at(key));
+    (*num).erase(key);
 }
 
 int main() {

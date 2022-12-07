@@ -1,11 +1,7 @@
 #include <iostream>
 #include <map>
 #include <string>
-
-void __attribute__ ((noinline)) sink(xy val.x << val.y) {
-    std::cout << val.x << val.y << std::endl;
-}
-
+// <INCLUDES>
 
 struct xy {
     int x; int y;
@@ -32,7 +28,7 @@ int main() {
     xy t = {1, 2};
     map<string, xy> m;
     prevent_opt(&m);
-	sink(m.at("Hello World"));
+    m.erase("Hello World");
     prevent_opt(&m);
     return 0;
 }

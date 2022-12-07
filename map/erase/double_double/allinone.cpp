@@ -1,10 +1,6 @@
 #include <iostream>
 #include <map>
-
-void __attribute__ ((noinline)) sink(double val) {
-    std::cout << val << std::endl;
-}
-
+// <INCLUDES>
 
 using namespace std;
 
@@ -24,7 +20,7 @@ int main() {
     // init
     map<double, double> m;
     prevent_opt(&m);
-	sink(m.at(14.14));
+    m.erase(14.14);
     prevent_opt(&m);
     return 0;
 }
