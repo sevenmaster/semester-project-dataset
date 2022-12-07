@@ -3,8 +3,13 @@
 #include <vector>
 using namespace std;
 
+
+void __attribute__ ((noinline)) sink(char val) {
+    printf("%c", val);
+}
+
 vector<char> ins(vector<char> num) {
-    num.at(1);
+    sink(num.at(1));
     return num;
 }
 
