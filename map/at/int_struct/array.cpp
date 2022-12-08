@@ -7,7 +7,7 @@ struct xy {
     }
 };
 
-// <INCLUDES>
+
 
 using namespace std;
 

@@ -14,11 +14,9 @@ vector<char> ins(vector<char> num) {
 }
 
 void __attribute__ ((noinline)) prevent_opt(vector<char>* num) {
-    // insert a random number os elements into num
     for (int i = 0; i < rand(); i++) {
         num->push_back(i);
     }
-    //print a random element into num
     char a = num->at(rand());
     printf("%c", a);
 }

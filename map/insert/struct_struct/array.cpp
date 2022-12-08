@@ -6,7 +6,7 @@ struct xy {
         return x < other.x || (x == other.x && y < other.y);
     }
 };
-// <INCLUDES>
+
 
 using namespace std;
 

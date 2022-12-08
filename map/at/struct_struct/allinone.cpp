@@ -21,7 +21,6 @@ void __attribute__ ((noinline)) prevent_opt(map<xy, xy>* num) {
         xy t = {j, j+1};
         num->insert(make_pair(t, t));
     }
-    // print the contents of num
     for (auto it = num->begin(); it != num->end(); it++) {
         cout << it->first.x << it->first.y << " " << it->second.x << it->second.y << endl;
     }

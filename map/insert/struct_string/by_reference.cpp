@@ -1,7 +1,7 @@
 #include <iostream>
 #include <map>
 #include <string>
-// <INCLUDES>
+
 
 using namespace std;
 struct xy {
@@ -16,7 +16,6 @@ void __attribute__ ((noinline)) prevent_opt(map<xy, string>* num) {
         xy t = {j, j+1};
         num->insert(make_pair(t, to_string(j)));
     }
-    // print the contents of num
     for (auto it = num->begin(); it != num->end(); it++) {
         cout << it->first.x << it->first.y << " " << it->second << endl;
     }

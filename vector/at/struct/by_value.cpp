@@ -15,12 +15,10 @@ vector<xy> ins(vector<xy> num) {
 }
 
 void __attribute__ ((noinline)) prevent_opt(vector<xy>* num) {
-    // insert a random number os elements into num
     for (int i = 0; i < rand(); i++) {
         xy t = {i, i};
         num->push_back(t);
     }
-    //print a random element into num
     xy a = num->at(rand());
     printf("%d,%d", a.x, a.y);
 }

@@ -10,10 +10,8 @@ using namespace std;
 
 void __attribute__ ((noinline)) prevent_opt(map<string, double>* num) {
     for (int j = 0; j < rand(); j++) {
-        // opt init
         num->insert(make_pair(to_string(j), j / 2.0));
     }
-    // print the contents of num
     for (auto it = num->begin(); it != num->end(); it++) {
         cout << it->first << " " << it->second << endl;
     }
@@ -45,7 +43,6 @@ map<string, double> A(map<string, double> num, const string key, double value) {
 }
 
 int main() {
-    // init
     map<string, double> m;
     prevent_opt(&m);
     m = A(m, "Hello World", 13.37);

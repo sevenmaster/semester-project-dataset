@@ -7,7 +7,7 @@ struct xy {
     }
 };
 
-// <INCLUDES>
+
 
 using namespace std;
 
@@ -16,7 +16,6 @@ void __attribute__ ((noinline)) prevent_opt(map<double, xy>* num) {
         xy t = {j, j+1};
         num->insert(make_pair(j, t));
     }
-    // print the contents of num
     for (auto it = num->begin(); it != num->end(); it++) {
         cout << it->first << " " << it->second.x << it->second.y << endl;
     }

@@ -10,11 +10,9 @@ vector<string> ins(vector<string> num) {
 }
 
 void __attribute__ ((noinline)) prevent_opt(vector<string>* num) {
-    // insert a random number os elements into num
     for (int i = 0; i < rand(); i++) {
         num->push_back(to_string(i));
     }
-    //print a random element into num
     string a = num->at(rand());
     printf("%s", a.c_str());
 }

@@ -4,11 +4,9 @@
 using namespace std;
 
 void __attribute__ ((noinline)) prevent_opt(vector<char>* num, char val) {
-    // insert a random number os elements into num
     for (int i = 0; i < rand(); i++) {
         num->push_back(i);
     }
-    //print a random element into num
     char a = num->at(rand());
     printf("%c %c", a, val);
 }
